@@ -8,10 +8,10 @@ class Config:
     SECRET_KEY = os.getenv('SECRET_KEY', 'ai-mood-diary-secret-key-2024')
     JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY', 'jwt-secret-key-2024')
 
-    # 数据库配置（默认使用SQLite，无需安装数据库）
+    # 数据库配置（支持PostgreSQL和SQLite）
     BASEDIR = os.path.abspath(os.path.dirname(__file__))
     SQLALCHEMY_DATABASE_URI = os.getenv(
-        'DATABASE_URI',
+        'DATABASE_URL',
         f'sqlite:///{os.path.join(BASEDIR, "mood_diary.db")}'
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
